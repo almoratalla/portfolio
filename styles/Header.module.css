@@ -1,0 +1,121 @@
+.alm-ham-burger {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 24px;
+}
+
+.alm-ham-patty {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 24px;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--alm-brand-primary);
+    transition-property: transform;
+}
+
+.alm-ham-patty::before {
+    width: 50%;
+    top: -7px;
+    opacity: 1;
+    content: "";
+    display: block;
+    position: absolute;
+    left: auto;
+    right: 0px;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--alm-brand-primary);
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    transition-property: transform;
+}
+
+.alm-ham-patty::after {
+    width: 50%;
+    bottom: -7px;
+    opacity: 1;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: auto;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--alm-brand-primary);
+}
+
+.alm-ham-patty--bef-open::before {
+    width: 50%;
+    top: -7px;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+    background-color: var(--alm-brand-btn-secondary);
+}
+
+.alm-ham-patty--bef-close::before {
+    width: 50%;
+    top: -7px;
+    opacity: 1;
+    transition: top 0.1s ease-in 0.25s,
+        opacity 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.alm-ham-patty--aft-open::after {
+    width: 100%;
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out;
+    background-color: var(--alm-brand-btn-secondary);
+}
+
+.alm-ham-patty--aft-close::after {
+    width: 50%;
+    transform: rotate(0);
+    transition: bottom 0.1s ease-in 0.25s,
+        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.alm-ham-btn {
+    transition-property: opacity, filter;
+}
+
+.alm-head-aside {
+    width: min(75vw, 400px);
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+    transition: var(--alm-transition);
+}
+
+.active-nav {
+    font-weight: bold;
+    color: var(--alm-brand-primary);
+    border-bottom: 2px solid var(--alm-brand-primary);
+}
+
+.normal-nav {
+    font-weight: inherit;
+    color: inherit;
+}
+
+.scroll-down {
+    height: 70px;
+    transform: translateY(calc(70px * -1));
+    box-shadow: 0 4px 20px -10px #b9a6c9;
+
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.scroll-up {
+    transform: translateY(0px);
+    background-color: white;
+    box-shadow: 0 4px 20px -10px #b9a6c9;
+
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.scroll-top {
+    box-shadow: none;
+    transform: unset;
+}

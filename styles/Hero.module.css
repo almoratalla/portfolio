@@ -1,0 +1,142 @@
+.alm-sub-headline {
+    font-family: "Poppins";
+    font-weight: normal;
+    font-size: 1rem; /* 16px */
+    line-height: 1.5;
+    color: #4c4452;
+}
+
+.alm-main-cta {
+    background: #111721;
+    color: white;
+    padding: 0.8em 1em;
+    border-radius: 5px;
+    font-family: "Poppins";
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+}
+
+.alm-sub-cta {
+    background: none;
+    color: var(--alm-brand-primary);
+    border-radius: 5px;
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+.alm-cta-scroll {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--alm-brand-primary-alt);
+    margin-top: 6em;
+    font-size: 1rem;
+    position: relative;
+    text-indent: 2.5em;
+    font-weight: 700;
+    margin-bottom: 1em;
+    overflow: visible;
+}
+
+.alm-cta-scroll::before {
+    content: "";
+    position: absolute;
+
+    width: 1.3em;
+    height: 2.8em;
+    border: 2px solid var(--alm-brand-primary);
+    left: 0;
+    top: -0.6em;
+    border-radius: 5em;
+}
+.alm-cta-scroll::after {
+    content: "";
+    position: absolute;
+
+    width: 0.53em;
+    height: 0.53em;
+    background: var(--alm-brand-primary);
+    border-radius: 100%;
+    left: 0.41em;
+    top: -0.25em;
+    animation: scrollIcon 2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes scrollIcon {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(1.5em);
+        transform: translateY(1.5em);
+    }
+}
+
+@media (min-width: 768px) {
+    .alm-sub-headline {
+        font-family: "Poppins";
+        font-weight: normal;
+        font-size: 1.125rem; /* 22px */
+        line-height: 1.63;
+        color: #4c4452;
+    }
+
+    .alm-main-cta {
+        background: #111721;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 5px;
+        font-family: "Poppins";
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .alm-sub-cta {
+        background: none;
+        border: 5px solid var(--alm-brand-primary);
+        color: var(--alm-brand-primary);
+        padding: 1rem 1.5rem;
+        border-radius: 5px;
+        font-family: "Poppins";
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .alm-cta-scroll {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--alm-brand-primary-alt);
+        margin-top: 6em;
+        font-size: 1.2rem;
+        position: relative;
+        text-indent: 2.5em;
+        font-weight: 700;
+        margin-bottom: 1em;
+        overflow: visible;
+    }
+
+    .alm-cta-scroll::before {
+        content: "";
+        position: absolute;
+
+        width: 1.4em;
+        height: 2.8em;
+        border: 3px solid var(--alm-brand-primary);
+        left: 0;
+        top: -0.6em;
+        border-radius: 5em;
+    }
+    .alm-cta-scroll::after {
+        content: "";
+        position: absolute;
+
+        width: 0.62em;
+        height: 0.62em;
+        background: var(--alm-brand-primary);
+        border-radius: 100%;
+        left: 0.37em;
+        top: -0.25em;
+        animation: scrollIcon 2s ease-in-out infinite alternate-reverse;
+    }
+}

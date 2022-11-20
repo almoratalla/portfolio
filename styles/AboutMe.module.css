@@ -1,0 +1,113 @@
+.alm-aboutme-pic {
+    width: 70%;
+
+    position: relative;
+    max-width: 300px;
+}
+
+.alm-aboutme-pic-wrapper {
+    border-radius: 50%;
+
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #955de0;
+}
+
+.alm-aboutme-pic-wrapper:before {
+    top: 0;
+    left: 0;
+    background-color: #955de0;
+    mix-blend-mode: screen;
+
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.alm-aboutme-pic-wrapper:after {
+    border: 2px solid #0a192f;
+    top: 10px;
+    left: 10px;
+    z-index: -1;
+
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.alm-aboutme-pic-wrapper:hover,
+.alm-aboutme-pic-wrapper:focus {
+    outline: 0;
+}
+.alm-aboutme-pic-wrapper:hover:after,
+.alm-aboutme-pic-wrapper:focus:after {
+    top: 15px;
+    left: 15px;
+}
+
+.alm-aboutme-pic-wrapper:hover .alm-aboutme-img-wrapper,
+.alm-aboutme-pic-wrapper:focus .alm-aboutme-img-wrapper {
+    filter: none;
+    mix-blend-mode: normal;
+}
+
+.alm-aboutme-pic-wrapper:after {
+    border: 2px inset #b9a6c9;
+    top: 10px;
+    left: 10px;
+    z-index: -1;
+
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.alm-aboutme-img-wrapper {
+    border-radius: 50%;
+    position: relative;
+    mix-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    -webkit-filter: grayscale(100%) contrast(1);
+    filter: grayscale(100%) contrast(1);
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.alm-aboutme-img-wrapper img {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    max-width: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+
+    transform: translateZ(0);
+    transition: opacity 0.25s linear;
+    will-change: opacity;
+
+    border-radius: 50%;
+}
