@@ -20,14 +20,15 @@ export default function Home() {
                     content="Let's turn brilliant ideas to income generation solutions"
                 />
                 <link rel="icon" href="/favicon.ico" />
-                {/* <!-- Google tag (gtag.js) --> */}
-                <Script
-                    strategy="afterInteractive"
-                    src="https://www.googletagmanager.com/gtag/js?id=G-7YB1VLV848"
-                ></Script>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
+            </Head>
+            {/* <!-- Google tag (gtag.js) --> */}
+            <Script
+                strategy="afterInteractive"
+                src="https://www.googletagmanager.com/gtag/js?id=G-7YB1VLV848"
+            ></Script>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
                         <!-- Google tag (gtag.js) -->
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
@@ -35,9 +36,8 @@ export default function Home() {
 
                         gtag('config', 'G-7YB1VLV848');
                         `,
-                    }}
-                />
-            </Head>
+                }}
+            />
 
             <HeaderNav />
             <div id="content" className="">
