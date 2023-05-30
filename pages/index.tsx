@@ -7,6 +7,7 @@ import HeaderNav from "../components/HeaderNav";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
+import Script from "next/script";
 // import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -19,7 +20,25 @@ export default function Home() {
                     content="Let's turn brilliant ideas to income generation solutions"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                {/* <!-- Google tag (gtag.js) --> */}
+                <Script
+                    strategy="afterInteractive"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-7YB1VLV848"
+                ></Script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        <!-- Google tag (gtag.js) -->
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'G-7YB1VLV848');
+                        `,
+                    }}
+                />
             </Head>
+
             <HeaderNav />
             <div id="content" className="">
                 <main className="">
