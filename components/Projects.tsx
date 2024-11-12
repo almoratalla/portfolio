@@ -77,7 +77,13 @@ const Projects = () => {
                                                     styles["project-title"],
                                                 ].join(" ")}
                                             >
-                                                <a href="">{fp.name}</a>
+                                                <a
+                                                    href={fp.url}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    {fp.name}
+                                                </a>
                                             </h4>
                                             <div
                                                 className={[
@@ -123,7 +129,11 @@ const Projects = () => {
                                         </div>
                                     </div>
                                     <div className={styles["project-image"]}>
-                                        <a href="https://foryoutube.herokuapp.com/">
+                                        <a
+                                            href={fp.url}
+                                            target="_blank"
+                                            rel="noopener"
+                                        >
                                             <div
                                                 className={
                                                     styles[
