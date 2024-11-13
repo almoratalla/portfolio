@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 const Experiences = () => {
@@ -24,15 +23,13 @@ const Experiences = () => {
                                 lineHeight: "1.575rem",
                             }}
                         >
-                            I've had the honor to provide services for clients
-                            through the following opportunities.
+                            I&apos;ve had the honor to provide services for
+                            clients through the following opportunities.
                         </p>
                     </div>
                 </div>
                 <div className="py-16">
-                    <h4 className="alm-h4">
-                        React Developer
-                    </h4>
+                    <h4 className="alm-h4">React Developer</h4>
                     <div className="flex flex-col justify-between md:flex-row flex-nowrap">
                         <span className="font-semibold">Asurion</span>
                         <span
@@ -44,7 +41,11 @@ const Experiences = () => {
                     </div>
                     <ul className="my-8" style={{ color: "#3E4C63" }}>
                         <li>
-                            ▹Developed a unified client portal consisting of a core app and shared services library comprising UI components, authentication services, and other existing app services integrated into one client portal
+                            ▹Developed a unified client portal consisting of a
+                            core app and shared services library comprising UI
+                            components, authentication services, and other
+                            existing app services integrated into one client
+                            portal
                         </li>
                     </ul>
                 </div>
@@ -66,8 +67,8 @@ const Experiences = () => {
                             ▹Full stack developer for automation services
                             working on projects that bring income generating
                             solutions and cost savings using web dashboards,
-                            reporting and tooling to provide client's business
-                            needs.
+                            reporting and tooling to provide client&apos;s
+                            business needs.
                         </li>
                     </ul>
                 </div>

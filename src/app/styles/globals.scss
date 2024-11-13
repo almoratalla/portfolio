@@ -133,6 +133,10 @@
 }
 
 .spline {
+    overflow: visible !important;
+}
+
+.spline > canvas {
     position: absolute;
     margin: 0;
     top: -100px;
@@ -232,9 +236,9 @@ $depth: 20px;
     border-bottom: 2px solid white;
     padding-bottom: 2px;
 }
-
-body.alm-blur {
+.alm-blur {
     overflow: hidden;
+    height: 100vh;
     #header-nav-container {
         background-color: transparent;
     }
@@ -247,24 +251,24 @@ body.alm-blur {
 }
 
 @media (min-width: 1024px) {
-    .spline {
+    .spline > canvas {
         transform: scale(0.8) translateX(200px);
         transform-origin: top;
     }
 }
 @media (max-width: 800px) {
-    .spline {
+    .spline > canvas {
         transform: scale(0.7) translateX(600px);
     }
 }
 @media (max-width: 600px) {
-    .spline {
+    .spline > canvas {
         transform: scale(0.5) translateX(-100px);
         margin-left: -600px;
     }
 }
 @media (max-width: 375px) {
-    .spline {
+    .spline > canvas {
         transform: scale(0.3);
     }
 }
@@ -292,7 +296,7 @@ body.alm-blur {
         color: var(--alm-brand-primary);
     }
 
-    .spline {
+    .spline > canvas {
         position: absolute;
         margin: 0;
         top: -50px;

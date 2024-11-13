@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import Spline from "@splinetool/react-spline";
-import styles from "../styles/Hero.module.css";
+import styles from "../styles/Hero.module.scss";
 import Link from "next/link";
 
 const Hero = () => {
@@ -12,7 +13,7 @@ const Hero = () => {
             <div className="flex flex-col w-full lg:flex-row ">
                 <div className="z-10 flex flex-col gap-6 md:w-4/6 flex-nowrap ">
                     <h1 className="alm-h1 md:w-11/12">
-                        Let's turn{" "}
+                        Let&apos;s turn{" "}
                         <span className="text-brand">Brilliant Ideas</span> to{" "}
                         <span className="text-brand">
                             Income Generating Solutions
@@ -29,7 +30,7 @@ const Hero = () => {
                         a full stack web developer and an engineer from the
                         Philippines. I love building products that are purpose
                         driven using web dashboards, reporting and tools to
-                        provide values for client's needs.
+                        provide values for client&apos;s needs.
                     </p>
                     <div
                         className={[
@@ -44,7 +45,10 @@ const Hero = () => {
                                 e.preventDefault();
                                 const section =
                                     document.getElementById("projects");
-                                section && section.scrollIntoView();
+                                if (section) {
+                                    section.scrollIntoView();
+                                }
+                                // section && section.scrollIntoView();
                             }}
                         >
                             Explore My Projects
@@ -57,16 +61,19 @@ const Hero = () => {
                                 e.preventDefault();
                                 const section =
                                     document.getElementById("contact");
-                                section && section.scrollIntoView();
+                                if (section) {
+                                    section.scrollIntoView();
+                                }
+                                // section && section.scrollIntoView();
                             }}
                         >
                             Hire Me!
                         </Link>
                     </div>
                 </div>
-                <div className="relative flex-1 hidden md:block">
+                <div className="flex-1 hidden md:block">
                     <Spline
-                        className="spline"
+                        className="spline relative flex-1 hidden md:block"
                         scene="https://prod.spline.design/Bpv2EGotp1juzHEi/scene.splinecode"
                     />
                 </div>

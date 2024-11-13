@@ -1,14 +1,14 @@
 import Head from "next/head";
-import AboutMe from "../components/AboutMe";
-import Contact from "../components/Contact";
-import Experiences from "../components/Experiences";
-import Footer from "../components/Footer";
-import HeaderNav from "../components/HeaderNav";
-import Hero from "../components/Hero";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
 import Script from "next/script";
-// import styles from "../styles/Home.module.css";
+import HeaderNav from "./components/HeaderNav";
+import AboutMe from "./components/AboutMe";
+import Contact from "./components/Contact";
+import Experiences from "./components/Experiences";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+// import Link from "next/link";
 
 export default function Home() {
     return (
@@ -19,10 +19,12 @@ export default function Home() {
                     name="description"
                     content="Let's turn brilliant ideas to income generation solutions"
                 />
-                <link rel="icon" href="/favicon.ico" />
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
+            </Head>
+            {/* <!-- Google tag (gtag.js) --> */}
+            <Script
+                id="gtm-script"
+                dangerouslySetInnerHTML={{
+                    __html: `
                         <!-- Google Tag Manager -->
                         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -31,10 +33,10 @@ export default function Home() {
                         })(window,document,'script','dataLayer','GTM-TXT687K');
                         <!-- End Google Tag Manager -->
                         `,
-                    }}
-                />
-            </Head>
-            {/* <!-- Google tag (gtag.js) --> */}
+                }}
+            >
+                {" "}
+            </Script>
             <Script
                 strategy="afterInteractive"
                 src="https://www.googletagmanager.com/gtag/js?id=G-7YB1VLV848"

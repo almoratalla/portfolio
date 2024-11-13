@@ -1,6 +1,6 @@
 import React from "react";
-import ALMImage from "../public/assets/imgs/ALMImage.png";
-import styles from "../styles/AboutMe.module.css";
+import styles from "../styles/AboutMe.module.scss";
+import Image from "next/image";
 
 const AboutMe = () => {
     return (
@@ -62,7 +62,7 @@ const AboutMe = () => {
                         <p className="mb-4">
                             If you like to know more about me, feel free to
                             contact me or check out links below to connect.
-                            Let's talk about your brilliant ideas!
+                            Let&apos;s talk about your brilliant ideas!
                         </p>
                     </div>
 
@@ -91,7 +91,7 @@ const AboutMe = () => {
                                         borderRadius: "50%",
                                     }}
                                 >
-                                    <img
+                                    <Image
                                         alt=""
                                         role="presentation"
                                         aria-hidden="true"
@@ -101,6 +101,8 @@ const AboutMe = () => {
                                             display: "block",
                                             position: "static",
                                         }}
+                                        width={500}
+                                        height={500}
                                     />
                                 </div>
                                 <picture>
@@ -110,7 +112,7 @@ const AboutMe = () => {
                                         data-main-image=""
                                         sizes="(min-width: 500px) 500px, 100vw"
                                         decoding="async"
-                                        src={ALMImage.src}
+                                        src={"./assets/imgs/ALMImage.png"}
                                         alt="Headshot"
                                         style={{
                                             objectFit: "cover",

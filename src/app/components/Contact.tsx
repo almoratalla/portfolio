@@ -1,9 +1,12 @@
+"use client";
+
 import React, { FormEvent, useState } from "react";
-import GitHubSVG from "../public/assets/svg/github.svg";
-import LinkedInSVG from "../public/assets/svg/linkedin.svg";
-import FrontEndMentorSVG from "../public/assets/svg/fem.svg";
-import CodewarsSVG from "../public/assets/svg/codewars.svg";
+import GitHubSVG from "../../../public/assets/svg/github.svg";
+import LinkedInSVG from "../../../public/assets/svg/linkedin.svg";
+import FrontEndMentorSVG from "../../../public/assets/svg/fem.svg";
+import CodewarsSVG from "../../../public/assets/svg/codewars.svg";
 import { contactLinks } from "../utils/config";
+// import Image from "next/image";
 
 const Contact = () => {
     const [formInputs, setFormInputs] = useState({
@@ -39,7 +42,7 @@ const Contact = () => {
                 return err;
             }
         };
-        const submittedForm = submitForm();
+        submitForm();
         setFormSubmitted(true);
     };
 
@@ -54,7 +57,7 @@ const Contact = () => {
                         <h3 className="alm-h3--projects">Contact</h3>
                         <div className="flex flex-row justify-between w-full nowrap">
                             <h2 className="alm-h2--projects">
-                                Let's have coffee some time
+                                Let&apos;s have coffee some time
                             </h2>
                         </div>
 
@@ -66,8 +69,8 @@ const Contact = () => {
                             }}
                         >
                             If you want to hire me, ask me a question or just
-                            wanted to say hi. Send me a message and I'll do my
-                            best to get back to you.
+                            wanted to say hi. Send me a message and I&apos;ll do
+                            my best to get back to you.
                         </p>
                     </div>
                 </div>
@@ -153,13 +156,14 @@ const Contact = () => {
                         </form>
                         {formSubmitted && (
                             <p className="p-4 bg-transparent border-2 border-success text-poppins">
-                                <h6 className="mb-2 font-bold text-md">
+                                <span className="mb-2 font-bold text-md mt-2">
                                     Thank you for being awesome!
-                                </h6>
+                                </span>
+                                <br />
                                 <span>
                                     I appreciate your message {formInputs.name}.
-                                    I'll get back to you shortly and reply by
-                                    email as soon as possible.
+                                    I&apos;ll get back to you shortly and reply
+                                    by email as soon as possible.
                                 </span>
                                 <span className="block mt-2">
                                     Talk to you soon
@@ -172,10 +176,10 @@ const Contact = () => {
                             Get in touch some other way...
                         </h4>
                         <p>
-                            I'm always open to opportunities and finding ways to
-                            improve myself. If you think I can provide any value
-                            for you in any way, you can also find me on the
-                            following sites.
+                            I&apos;m always open to opportunities and finding
+                            ways to improve myself. If you think I can provide
+                            any value for you in any way, you can also find me
+                            on the following sites.
                         </p>
                         <div className="flex flex-col gap-8 px-8 py-8 ">
                             <a
@@ -186,6 +190,13 @@ const Contact = () => {
                             >
                                 <div className="flex items-center justify-center w-8 h-8">
                                     <GitHubSVG className="w-8 h-8" />
+                                    {/* <Image
+                                        src="./assets/svg/github.svg"
+                                        alt="github"
+                                        className="w-8 h-8"
+                                        width={32}
+                                        height={32}
+                                    /> */}
                                 </div>
                                 <span>Github</span>
                             </a>
@@ -197,6 +208,13 @@ const Contact = () => {
                             >
                                 <div className="flex items-center justify-center w-8 h-8">
                                     <LinkedInSVG className="w-8 h-8" />
+                                    {/* <Image
+                                        src={"./assets/svg/linkedin.svg"}
+                                        alt={"linkedin"}
+                                        className="w-8 h-8"
+                                        width={32}
+                                        height={32}
+                                    /> */}
                                 </div>
                                 <span>LinkedIn</span>
                             </a>
@@ -208,6 +226,13 @@ const Contact = () => {
                             >
                                 <div className="flex items-center justify-center w-8 h-8 bg-white">
                                     <FrontEndMentorSVG className="" />
+                                    {/* <Image
+                                        src={"./assets/svg/fem.svg"}
+                                        alt={"frontend mentor"}
+                                        className="w-8 h-8"
+                                        width={32}
+                                        height={32}
+                                    /> */}
                                 </div>
                                 <span>Frontend Mentor</span>
                             </a>
@@ -222,6 +247,13 @@ const Contact = () => {
                                     style={{ backgroundColor: "#b1361e" }}
                                 >
                                     <CodewarsSVG className="" />
+                                    {/* <Image
+                                        src={"./assets/svg/codewars.svg"}
+                                        alt={"codewars"}
+                                        className="w-8 h-8"
+                                        width={32}
+                                        height={32}
+                                    /> */}
                                 </div>
                                 <span>Codewars</span>
                             </a>

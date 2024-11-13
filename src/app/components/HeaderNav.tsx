@@ -1,26 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import ALMLogo from "../public/assets/svg/ALMLogo.svg";
-import styles from "../styles/Header.module.css";
+import ALMLogo from "../../../public/assets/svg/ALMLogo.svg";
+import styles from "../styles/Header.module.scss";
 import { navLinks } from "../utils/config";
 import dynamic from "next/dynamic";
 import useScrollDirection from "../hooks/useScrollDirection";
-import { useRouter } from "next/router";
-import { Helmet } from "react-helmet-async";
+// import { useRouter } from "next/router";
+// import { Helmet } from "react-helmet-async";
 import useOnClickOutside from "../hooks/useOnClickOutside";
+import useHeaderStore from "../stores/header-store";
 
 const NavLinkWithNoSSR = dynamic(() => import("./NavLink"), { ssr: false });
 
 const HeaderNav = () => {
-    const [navOpen, setNavOpen] = useState(false);
+    // const [navOpen, setNavOpen] = useState(false);
     // const [currentSection, setCurrentSection] = useState("#");
     const [scrolledToTop, setScrolledToTop] = useState(true);
     const scrollDirection = useScrollDirection();
     // console.log(scrolledToTop, currentSection);
-    const { push } = useRouter();
+    // const { push } = useRouter();
+    const { isNavOpen, setNavOpen } = useHeaderStore();
 
     const navToggleHandler = (navState?: boolean) => {
-        setNavOpen((prevState) => (navState ? navState : !prevState));
+        // setNavOpen((prevState) => (navState ? navState : !prevState));
+        setNavOpen(navState);
     };
 
     const handleScroll = () => {
@@ -82,6 +87,13 @@ const HeaderNav = () => {
                         className="flex flex-row items-center font-montserrat flex-nowrap"
                     >
                         <ALMLogo className="h-6 sm:h-6 2xl:h-10"></ALMLogo>
+                        {/* <Image
+                            src={"./assets/svg/ALMLogo.svg"}
+                            alt=""
+                            width={100}
+                            height={100}
+                            className="h-6 sm:h-6 2xl:h-10"
+                        /> */}
                         <h2 className="hidden">ALAIN MORATALLA</h2>
                     </Link>
                     {/* Nav */}
@@ -110,12 +122,15 @@ const HeaderNav = () => {
                             </div>
                         </nav>
                     </div>
-                    <Helmet>
-                        <body className={navOpen ? "alm-blur" : ""} />
-                    </Helmet>
+                    {/* <Helmet> */}
+                    {/* <body className={navOpen ? "alm-blur" : ""} /> */}
+                    {/* </Helmet> */}
                     {/* Mobile Nav */}
-                    <div className="block md:hidden">
-                        <div className="flex flex-row" ref={wrapperRef}>
+                    <div className="block md:hidden alm-hamburger-close">
+                        <div
+                            className="flex flex-row alm-hamburger"
+                            ref={wrapperRef}
+                        >
                             <button
                                 className={[
                                     "relative z-20 h-6 w-6 lg:hidden border-0 bg-transparent text-inherit normal-case ease-linear duration-150",
@@ -130,18 +145,18 @@ const HeaderNav = () => {
                                             "duration-200",
                                             styles[
                                                 `alm-ham-patty--bef-${
-                                                    navOpen ? "open" : "close"
+                                                    isNavOpen ? "open" : "close"
                                                 }`
                                             ],
                                             styles[
                                                 `alm-ham-patty--aft-${
-                                                    navOpen ? "open" : "close"
+                                                    isNavOpen ? "open" : "close"
                                                 }`
                                             ],
                                             styles["alm-ham-patty"],
                                         ].join(" ")}
                                         style={
-                                            navOpen
+                                            isNavOpen
                                                 ? {
                                                       backgroundColor:
                                                           "#62BAAC",
@@ -168,7 +183,7 @@ const HeaderNav = () => {
                                 ].join(" ")}
                                 style={{
                                     transform: `translateX(${
-                                        navOpen ? 0 : 100
+                                        isNavOpen ? 0 : 100
                                     }vw)`,
                                 }}
                             >
@@ -177,14 +192,17 @@ const HeaderNav = () => {
                                         {navLinks.map((nl, nli) => (
                                             <li
                                                 key={`${nli}-${nl.name}`}
-                                                className="relative mt-0 mx-auto mb-2.5 sm:mb-5"
+                                                className="relative mt-0 mx-auto mb-2.5 sm:mb-5 "
+                                                onClick={() =>
+                                                    setNavOpen(false)
+                                                }
                                             >
                                                 <NavLinkWithNoSSR
                                                     href={`#${nl.url}`}
                                                     url={nl.url}
-                                                    closeNav={() =>
-                                                        setNavOpen(false)
-                                                    }
+                                                    // closeNav={() =>
+                                                    //     setNavOpen(false)
+                                                    // }
                                                 >
                                                     <span>{nl.name}</span>
                                                 </NavLinkWithNoSSR>

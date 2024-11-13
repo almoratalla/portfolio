@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import styles from "../styles/Projects.module.css";
+import styles from "../styles/Projects.module.scss";
 import { featuredProjects } from "../utils/config";
+import Image from "next/image";
 
 const Projects = () => {
     return (
@@ -15,7 +16,7 @@ const Projects = () => {
                         <h3 className="alm-h3--projects">Projects</h3>
                         <div className="flex flex-row justify-between w-full nowrap">
                             <h2 className="alm-h2--projects">
-                                Some of the Concepts I've Brought to Life
+                                Some of the Concepts I&apos;ve Brought to Life
                             </h2>
                             <button
                                 className="hidden px-4 bg-transparent rounded-lg border-10 md:hidden"
@@ -147,7 +148,7 @@ const Projects = () => {
                                                         display: "block",
                                                     }}
                                                 >
-                                                    <img
+                                                    <Image
                                                         alt=""
                                                         role="presentation"
                                                         aria-hidden="true"
@@ -157,12 +158,14 @@ const Projects = () => {
                                                             display: "block",
                                                             position: "static",
                                                         }}
+                                                        width={700}
+                                                        height={467}
                                                     />
                                                 </div>
                                                 <picture>
                                                     <source />
                                                     <img
-                                                        src={fp.demo.src}
+                                                        src={fp.demo}
                                                         width="700"
                                                         height="438"
                                                         alt=""
