@@ -9,20 +9,24 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "react-social-icons": "^5.15.0",
         "@next/third-parties": "^15.0.3",
+        "@payloadcms/db-mongodb": "^1.7.3",
+        "@payloadcms/richtext-lexical": "^0.1.9",
+        "@payloadcms/richtext-slate": "^1.5.2",
         "@splinetool/react-spline": "^4.0.0",
         "next": "^15.0.3",
+        "payload": "^2.30.4",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
+        "react-social-icons": "^5.15.0",
         "zustand": "^5.0.1"
     },
     "devDependencies": {
-        "autoprefixer": "^10.4.13",
         "@svgr/webpack": "^8.1.0",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "autoprefixer": "^10.4.13",
         "eslint": "^8",
         "eslint-config-next": "^15.0.3",
         "postcss": "^8",

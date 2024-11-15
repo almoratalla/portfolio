@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import ALMLogo from "../../../public/assets/svg/ALMLogo.svg";
+import ALMLogo from "../../../../public/assets/svg/ALMLogo.svg";
 import styles from "../styles/Header.module.scss";
 import { navLinks } from "../utils/config";
 import dynamic from "next/dynamic";

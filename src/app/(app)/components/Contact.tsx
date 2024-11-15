@@ -1,10 +1,10 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
-import GitHubSVG from "../../../public/assets/svg/github.svg";
-import LinkedInSVG from "../../../public/assets/svg/linkedin.svg";
-import FrontEndMentorSVG from "../../../public/assets/svg/fem.svg";
-import CodewarsSVG from "../../../public/assets/svg/codewars.svg";
+import GitHubSVG from "../../../../public/assets/svg/github.svg";
+import LinkedInSVG from "../../../../public/assets/svg/linkedin.svg";
+import FrontEndMentorSVG from "../../../../public/assets/svg/fem.svg";
+import CodewarsSVG from "../../../../public/assets/svg/codewars.svg";
 import { contactLinks } from "../utils/config";
 // import Image from "next/image";
 
