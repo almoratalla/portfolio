@@ -1,7 +1,24 @@
 import type { NextConfig } from "next";
-
+import { RemotePattern } from "next/dist/shared/lib/image-config";
+import redirects from './redirects.js'
+const NEXT_PUBLIC_SERVER_URL =
+    process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 const nextConfig: NextConfig = {
     /* config options here */
+    images: {
+        remotePatterns: [
+            ...[NEXT_PUBLIC_SERVER_URL].map((item) => {
+                const url = new URL(item);
+
+                return {
+                    hostname: url.hostname,
+                    protocol: url.protocol.replace(":", ""),
+                };
+            }) as RemotePattern[],
+        ],
+    },
+    reactStrictMode: true,
+    redirects,
     webpack(config) {
         // Grab the existing rule that handles SVG imports
         const fileLoaderRule = config.module.rules.find(
