@@ -17,4 +17,6 @@ const redirects = async () => {
   return redirects
 }
 
-export default redirects
+module.exports = redirects
+
+// export default redirects
