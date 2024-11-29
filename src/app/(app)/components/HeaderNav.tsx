@@ -103,7 +103,7 @@ const HeaderNav = () => {
                                 {navLinks.map((nl, nli) => (
                                     <li key={`${nli}-${nl.name}`}>
                                         <NavLinkWithNoSSR
-                                            href={`#${nl.url}`}
+                                            href={`/#${nl.url}`}
                                             url={nl.url}
                                         >
                                             <span>{nl.name}</span>
@@ -198,7 +198,7 @@ const HeaderNav = () => {
                                                 }
                                             >
                                                 <NavLinkWithNoSSR
-                                                    href={`#${nl.url}`}
+                                                    href={`/#${nl.url}`}
                                                     url={nl.url}
                                                     // closeNav={() =>
                                                     //     setNavOpen(false)

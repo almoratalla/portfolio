@@ -84,6 +84,6 @@ export async function GET(
     }
 
     draft.enable()
-    redirect(`/articles/${path}`)
+    redirect(`${path}`)
   }
 }
