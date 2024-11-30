@@ -10,6 +10,7 @@ import PageClient from './page.client'
 import HeaderNav from '../components/HeaderNav'
 import Head from 'next/head'
 import Script from 'next/script'
+import Footer from '../components/Footer'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -77,27 +78,25 @@ export default async function Page() {
 
       <HeaderNav />
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
-      </div>
+      <div id="content" className="">
+        <main className="flex flex-col items-start h-full min-h-screen p-0 mx-auto 2xl:max-w-7xl py-20 ">
+          <div className="container my-8 !px-6 md:!px-10">
+            <PageRange
+              collection="posts"
+              currentPage={posts.page}
+              limit={12}
+              totalDocs={posts.totalDocs}
+            />
+          </div>
 
-      <div className="container mb-8">
-        <PageRange
-          collection="posts"
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
-      </div>
+          <CollectionArchive posts={posts.docs} />
 
-      <CollectionArchive posts={posts.docs} />
-
-      <div className="container">
-        {posts.totalPages > 1 && posts.page && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
-        )}
+          <div className="container !px-6 md:!px-10">
+            {posts.totalPages > 1 && posts.page && (
+              <Pagination page={posts.page} totalPages={posts.totalPages} />
+            )}
+          </div>
+        </main>
       </div>
     </div>
   )

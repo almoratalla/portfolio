@@ -107,14 +107,13 @@ export default async function Post({ params: paramsPromise }: Args) {
         <PostHero post={post} />
 
         <div className="flex flex-col items-center gap-4 pt-8">
-          <div className="container lg:mx-0 lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
+          <div className="container lg:mx-0 lg:grid lg:grid-cols-[1fr_40rem_1fr] grid-rows-[1fr] !px-6 md:!px-10 2xl:max-w-7xl">
             <RichText
               className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
               content={post.content}
               enableGutter={false}
             />
           </div>
-
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
               className="mt-12"
