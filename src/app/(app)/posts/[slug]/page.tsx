@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from 'next'
 
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
@@ -55,7 +56,14 @@ export default async function Post({ params: paramsPromise }: Args) {
           content="Let's turn brilliant ideas to income generation solutions"
         />
       </Head>
-      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        src="https://www.biblegateway.com/public/link-to-us/tooltips/bglinks.js"
+        type="text/javascript"
+        strategy="beforeInteractive"
+      ></Script>
+      <Script id="bglinks" type="text/javascript" strategy="afterInteractive">
+        BGLinks.version = "ESV"; BGLinks.linkVerses();
+      </Script>
       <Script
         id="gtm-script"
         dangerouslySetInnerHTML={{
