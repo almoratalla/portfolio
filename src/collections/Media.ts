@@ -43,12 +43,12 @@ try {
     readdirSync(
       env === 'development'
         ? path.resolve(dirname, '../../public/media')
-        : path.resolve(process.cwd(), './src/uploads'),
+        : path.resolve(process.cwd(), './src'),
     ),
     readdirSync(
       env === 'development'
         ? path.resolve(dirname, '../../public/media')
-        : path.resolve(process.cwd(), './src'),
+        : path.resolve(process.cwd(), './src/uploads'),
     ),
   )
 } catch (error) {
