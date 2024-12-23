@@ -75,9 +75,6 @@ export default buildConfig({
       // Specify which collections should use Vercel Blob
       collections: {
         media: true,
-        'media-with-prefix': {
-          prefix: 'my-prefix',
-        },
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN,
