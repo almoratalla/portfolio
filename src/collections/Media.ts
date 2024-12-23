@@ -20,12 +20,18 @@ console.log('cwd: ', process.cwd())
 try {
   console.log(
     'dirname files',
+    readdirSync(path.resolve(dirname, '../../')),
     readdirSync(path.resolve(dirname)),
     readdirSync(
       path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
     ),
     readdirSync(process.cwd()),
   )
+} catch (error) {
+  console.log(error)
+}
+try {
+  console.log('dirname files cwd', readdirSync(process.cwd()))
 } catch (error) {
   console.log(error)
 }
