@@ -19,8 +19,10 @@ console.log('dirname', dirname)
 console.log('cwd: ', process.cwd())
 console.log(
   'dirname files',
-  readdirSync(dirname, 'utf-8'),
-  path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
+  readdirSync(path.resolve(dirname)),
+  readdirSync(
+    path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
+  ),
 )
 console.log('ENV', env)
 
