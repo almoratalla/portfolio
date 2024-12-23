@@ -38,6 +38,19 @@ try {
       ? path.resolve(dirname, '../../public/media')
       : path.resolve(process.cwd(), './src/uploads'),
   )
+  console.log(
+    'cwd read: ',
+    readdirSync(
+      env === 'development'
+        ? path.resolve(dirname, '../../public/media')
+        : path.resolve(process.cwd(), './src/uploads'),
+    ),
+    readdirSync(
+      env === 'development'
+        ? path.resolve(dirname, '../../public/media')
+        : path.resolve(process.cwd(), './src'),
+    ),
+  )
 } catch (error) {
   console.log(error)
 }
