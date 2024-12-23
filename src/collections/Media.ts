@@ -10,11 +10,13 @@ import { fileURLToPath } from 'url'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { readFileSync } from 'fs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 console.log('dirname', dirname)
 console.log('cwd: ', process.cwd())
+console.log('dirname files', readFileSync(dirname, 'utf-8'))
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -42,7 +44,7 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
-    staticDir: path.resolve(process.cwd(), '../../public/media'),
+    staticDir: path.resolve(dirname, '../../public/media'),
     adminThumbnail: 'thumbnail',
     imageSizes: [
       {
