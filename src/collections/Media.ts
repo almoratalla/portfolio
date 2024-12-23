@@ -32,6 +32,12 @@ try {
 }
 try {
   console.log('dirname files cwd', readdirSync(process.cwd()))
+  console.log(
+    'cwd: ',
+    env === 'development'
+      ? path.resolve(dirname, '../../public/media')
+      : path.resolve(dirname, '../uploads'),
+  )
 } catch (error) {
   console.log(error)
 }
@@ -64,10 +70,10 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
-    staticDir: path.resolve(
-      dirname,
-      env === 'development' ? '../../public/media' : '../../uploads',
-    ),
+    staticDir:
+      env === 'development'
+        ? path.resolve(dirname, '../../public/media')
+        : path.resolve(dirname, '../uploads'),
     adminThumbnail: 'thumbnail',
     imageSizes: [
       {
