@@ -36,7 +36,7 @@ try {
     'cwd: ',
     env === 'development'
       ? path.resolve(dirname, '../../public/media')
-      : path.resolve(process.cwd(), '../uploads'),
+      : path.resolve(process.cwd(), './src/uploads'),
   )
 } catch (error) {
   console.log(error)
@@ -73,7 +73,7 @@ export const Media: CollectionConfig = {
     staticDir:
       env === 'development'
         ? path.resolve(dirname, '../../public/media')
-        : path.resolve(process.cwd(), '../uploads'),
+        : path.resolve(process.cwd(), './src/uploads'),
     adminThumbnail: 'thumbnail',
     imageSizes: [
       {
