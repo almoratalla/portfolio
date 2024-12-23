@@ -17,13 +17,19 @@ const dirname = path.dirname(filename)
 const env = process.env.NODE_ENV
 console.log('dirname', dirname)
 console.log('cwd: ', process.cwd())
-console.log(
-  'dirname files',
-  readdirSync(path.resolve(dirname)),
-  readdirSync(
-    path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
-  ),
-)
+try {
+  console.log(
+    'dirname files',
+    readdirSync(path.resolve(dirname)),
+    readdirSync(
+      path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
+    ),
+    readdirSync(process.cwd()),
+  )
+} catch (error) {
+  console.log(error)
+}
+
 console.log('ENV', env)
 
 export const Media: CollectionConfig = {
