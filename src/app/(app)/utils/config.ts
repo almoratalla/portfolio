@@ -56,7 +56,7 @@ export const featuredProjects = [
       'A concept that visualizes personal youtube profile data using React and Node.js built around googleapis; OAuth2 and youtube data api v3.',
     techStack: ['Typescript', 'React', 'Node.js', 'Youtube Data API'],
     demo: '../showcase/ShowcaseForYou.png',
-    url: 'https://foryoutube.herokuapp.com/',
+    url: 'https://foryou-ahk2.onrender.com/',
   },
   {
     name: 'Ccphean',
