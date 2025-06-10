@@ -62,7 +62,7 @@ export const featuredProjects = [
     name: 'Ccphean',
     description:
       'A bug tracking app that lets you manage projects, issues and tasks while providing insights on data and productivity.',
-    techStack: ['Typescript', 'Angular', 'ASP .Net Core', 'PostgreSQL'],
+    techStack: ['Typescript', 'Angular', 'ASP .Net Core', 'SQL Server', 'Azure'],
     demo: '../showcase/ShowcaseCcphean.png',
     url: 'https://ccphean.azurewebsites.net/',
   },
