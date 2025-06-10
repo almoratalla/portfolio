@@ -64,6 +64,6 @@ export const featuredProjects = [
       'A bug tracking app that lets you manage projects, issues and tasks while providing insights on data and productivity.',
     techStack: ['Typescript', 'Angular', 'ASP .Net Core', 'PostgreSQL'],
     demo: '../showcase/ShowcaseCcphean.png',
-    url: '/',
+    url: 'https://ccphean.azurewebsites.net/',
   },
 ]
