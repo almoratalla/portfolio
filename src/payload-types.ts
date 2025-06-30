@@ -1393,6 +1393,33 @@ export interface CodeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PersonalReflectionBlock".
+ */
+export interface PersonalReflectionBlock {
+  title?: string | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  style?: ('default' | 'highlighted' | 'callout' | 'sidebar') | null;
+  showAuthor?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'personalReflection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
