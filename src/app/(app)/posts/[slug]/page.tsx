@@ -17,6 +17,7 @@ import PageClient from './page.client'
 import HeaderNav from '../../components/HeaderNav'
 import Script from 'next/script'
 import Head from 'next/head'
+import { PostActions } from '@/components/PostActions/enhanced'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -46,6 +47,18 @@ export default async function Post({ params: paramsPromise }: Args) {
   const post = await queryPostBySlug({ slug })
 
   if (!post) return <PayloadRedirects url={url} />
+
+  // Prepare share data for social media sharing
+  const postUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/posts/${post.slug}`
+  const shareData = {
+    url: postUrl,
+    title: post.title,
+    description: post.meta?.description || `Read "${post.title}" on my blog`,
+    image:
+      (typeof post.meta?.image === 'object' && post.meta.image ? post.meta.image.url : undefined) ||
+      undefined,
+    hashtags: ['blog', 'reflection', 'thoughts'], // Customize as needed
+  }
 
   return (
     <div className="min-h-screen">
@@ -122,6 +135,19 @@ export default async function Post({ params: paramsPromise }: Args) {
               enableGutter={false}
             />
           </div>
+
+          {/* Post Actions - After Article Content */}
+          <div className="container !px-6 md:!px-10 2xl:max-w-7xl w-full">
+            <PostActions
+              postId={post.id}
+              shareData={shareData}
+              variant="footer"
+              viewsVariant="detailed"
+              shareVariant="expanded"
+              className="my-8"
+            />
+          </div>
+
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
               className="mt-12"
