@@ -1,4 +1,3 @@
-// Firebase Admin SDK configuration for server-side operations
 import admin from 'firebase-admin'
 
 interface FirebaseAdminAppParams {
@@ -9,7 +8,8 @@ interface FirebaseAdminAppParams {
 }
 
 function formatPrivateKey(key: string) {
-  return key.replace(/\\n/g, '\n')
+  // Remove quotes and handle escaped newlines
+  return key.replace(/\\n/g, '\n').replace(/"/g, '')
 }
 
 export function createFirebaseAdminApp(params: FirebaseAdminAppParams) {
@@ -40,15 +40,15 @@ export async function initAdmin() {
     privateKey: process.env.NEXT_FIREBASE_PRIVATE_KEY as string,
   }
 
+  // Validate that all required environment variables are present
+  if (!params.projectId || !params.clientEmail || !params.storageBucket || !params.privateKey) {
+    throw new Error('Missing required Firebase Admin environment variables')
+  }
+
   return createFirebaseAdminApp(params)
 }
 
-// Initialize and get Firestore instance
-let adminApp: admin.app.App | null = null
-
 export async function getAdminDb() {
-  if (!adminApp) {
-    adminApp = await initAdmin()
-  }
-  return admin.firestore(adminApp)
+  const app = await initAdmin()
+  return app.firestore()
 }
