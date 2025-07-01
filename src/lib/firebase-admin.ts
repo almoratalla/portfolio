@@ -8,8 +8,8 @@ interface FirebaseAdminAppParams {
 }
 
 function formatPrivateKey(key: string) {
-  // Remove quotes and handle escaped newlines
-  return key.replace(/\\n/g, '\n').replace(/"/g, '')
+  // Remove quotes and handle escaped newlines properly
+  return key.replace(/\\n/g, '\n').replace(/^"(.*)"$/, '$1')
 }
 
 export function createFirebaseAdminApp(params: FirebaseAdminAppParams) {
