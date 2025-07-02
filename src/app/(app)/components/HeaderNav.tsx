@@ -21,7 +21,6 @@ const HeaderNav = () => {
   // const [currentSection, setCurrentSection] = useState("#");
   const [scrolledToTop, setScrolledToTop] = useState(true)
   const scrollDirection = useScrollDirection()
-  // console.log(scrolledToTop, currentSection);
   // const { push } = useRouter();
   const { isNavOpen, setNavOpen } = useHeaderStore()
 

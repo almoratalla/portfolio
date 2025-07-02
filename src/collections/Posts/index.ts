@@ -18,6 +18,7 @@ import { PersonalReflection } from '../../blocks/PersonalReflection/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidatePost } from './hooks/revalidatePost'
+import { calculateReadingTime } from './hooks/calculateReadingTime'
 
 import {
   MetaDescriptionField,
@@ -63,6 +64,32 @@ export const Posts: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+    },
+    {
+      name: 'excerpt',
+      type: 'textarea',
+      admin: {
+        description: 'Brief description of the post (recommended 150-160 characters for SEO)',
+      },
+      maxLength: 200,
+    },
+    {
+      name: 'featuredImage',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        description: 'Featured image for social sharing and SEO (recommended 1200x630px)',
+      },
+    },
+    {
+      name: 'readingTime',
+      type: 'number',
+      admin: {
+        description: 'Estimated reading time in minutes (auto-calculated if left empty)',
+      },
+      hooks: {
+        beforeChange: [calculateReadingTime],
+      },
     },
     {
       type: 'tabs',

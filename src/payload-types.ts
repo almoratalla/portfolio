@@ -437,6 +437,18 @@ export interface Category {
 export interface Post {
   id: string;
   title: string;
+  /**
+   * Brief description of the post (recommended 150-160 characters for SEO)
+   */
+  excerpt?: string | null;
+  /**
+   * Featured image for social sharing and SEO (recommended 1200x630px)
+   */
+  featuredImage?: (string | null) | Media;
+  /**
+   * Estimated reading time in minutes (auto-calculated if left empty)
+   */
+  readingTime?: number | null;
   content: {
     root: {
       type: string;
@@ -1001,6 +1013,9 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  excerpt?: T;
+  featuredImage?: T;
+  readingTime?: T;
   content?: T;
   relatedPosts?: T;
   categories?: T;

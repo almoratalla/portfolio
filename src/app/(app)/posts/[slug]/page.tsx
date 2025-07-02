@@ -13,6 +13,7 @@ import type { Post } from '@/payload-types'
 
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
+import { PostSchema } from '@/components/PostSchema'
 import PageClient from './page.client'
 import HeaderNav from '../../components/HeaderNav'
 import Script from 'next/script'
@@ -62,8 +63,12 @@ export default async function Post({ params: paramsPromise }: Args) {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Schema.org Structured Data */}
+      <PostSchema post={post} />
+
       <Head>
         <title>Alain Moratalla</title>
+        <link rel="canonical" href={postUrl} />
         <meta
           name="description"
           content="Let's turn brilliant ideas to income generation solutions"

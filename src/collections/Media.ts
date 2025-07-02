@@ -10,52 +10,10 @@ import { fileURLToPath } from 'url'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
-import { readdirSync } from 'fs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 const env = process.env.NODE_ENV
-console.log('dirname', dirname)
-console.log('cwd: ', process.cwd())
-try {
-  console.log(
-    'dirname files',
-    readdirSync(path.resolve(dirname, '../../')),
-    readdirSync(path.resolve(dirname)),
-    readdirSync(
-      path.resolve(dirname, env === 'development' ? '../../public/media' : '../../uploads'),
-    ),
-    readdirSync(process.cwd()),
-  )
-} catch (error) {
-  console.log(error)
-}
-try {
-  console.log('dirname files cwd', readdirSync(process.cwd()))
-  console.log(
-    'cwd: ',
-    env === 'development'
-      ? path.resolve(dirname, '../../public/media')
-      : path.resolve(process.cwd(), './src/uploads'),
-  )
-  console.log(
-    'cwd read: ',
-    readdirSync(
-      env === 'development'
-        ? path.resolve(dirname, '../../public/media')
-        : path.resolve(process.cwd(), './src'),
-    ),
-    readdirSync(
-      env === 'development'
-        ? path.resolve(dirname, '../../public/media')
-        : path.resolve(process.cwd(), './src/uploads'),
-    ),
-  )
-} catch (error) {
-  console.log(error)
-}
-
-console.log('ENV', env)
 
 export const Media: CollectionConfig = {
   slug: 'media',
