@@ -61,6 +61,15 @@ export const Posts: CollectionConfig = {
   },
   fields: [
     {
+      name: 'exportActions',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/components/ExportPostButton',
+        },
+      },
+    },
+    {
       name: 'title',
       type: 'text',
       required: true,

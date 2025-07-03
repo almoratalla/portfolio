@@ -12,6 +12,7 @@ export function middleware(request: NextRequest) {
       '/test-media-sizes',
       '/test-media',
       '/test-page-views',
+      '/test-export-feature',
       '/list-posts',
       '/debug-view',
       '/debug-post',
