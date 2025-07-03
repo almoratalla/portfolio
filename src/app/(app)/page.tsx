@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Script from 'next/script'
 import HeaderNav from './components/HeaderNav'
 import AboutMe from './components/AboutMe'
@@ -8,18 +7,28 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import { RecentPosts } from '@/components/RecentPosts'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
 // import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  // Fetch recent posts
+  const payload = await getPayload({ config: configPromise })
+  const recentPosts = await payload.find({
+    collection: 'posts',
+    draft: false,
+    limit: 6,
+    sort: '-publishedAt',
+    where: {
+      _status: {
+        equals: 'published',
+      },
+    },
+  })
+
   return (
     <div className="min-h-screen">
-      <Head>
-        <title>Alain Moratalla</title>
-        <meta
-          name="description"
-          content="Let's turn brilliant ideas to income generation solutions"
-        />
-      </Head>
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         id="gtm-script"
@@ -71,7 +80,8 @@ export default function Home() {
           <Experiences />
           <Skills />
           <AboutMe />
-          {/* Blog */}
+          {/* Recent Blog Posts */}
+          <RecentPosts posts={recentPosts.docs} />
           <Contact />
           <Footer />
         </main>

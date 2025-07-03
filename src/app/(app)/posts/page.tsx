@@ -8,7 +8,6 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import HeaderNav from '../components/HeaderNav'
-import Head from 'next/head'
 import Script from 'next/script'
 import Footer from '../components/Footer'
 
@@ -27,13 +26,6 @@ export default async function Page() {
 
   return (
     <div className="min-h-screen">
-      <Head>
-        <title>Alain Moratalla</title>
-        <meta
-          name="description"
-          content="Let's turn brilliant ideas to income generation solutions"
-        />
-      </Head>
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         id="gtm-script"

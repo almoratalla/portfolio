@@ -11,8 +11,6 @@ import useScrollDirection from '../hooks/useScrollDirection'
 // import { Helmet } from "react-helmet-async";
 import useOnClickOutside from '../hooks/useOnClickOutside'
 import useHeaderStore from '../stores/header-store'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
-import { ChevronDown } from 'lucide-react'
 
 const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), { ssr: false })
 
@@ -98,27 +96,9 @@ const HeaderNav = () => {
               <ol className="items-center justify-center md:flex lg:flex-row md:flex-nowrap gap-11 md:gap-6 2xl:gap-11 font-poppins text-xxs 2xl:text-lg">
                 {navLinks.map((nl, nli) => (
                   <li key={`${nli}-${nl.name}`}>
-                    <HoverCard>
-                      <HoverCardTrigger asChild>
-                        <NavLinkWithNoSSR href={`/#${nl.url}`} url={nl.url}>
-                          <div className="flex flex-row gap-2 items-center">
-                            <span>{nl.name}</span>
-                            {nl.name === 'About' && (
-                              <ChevronDown className="w-3 h-3 2xl:w-5 2xl:h-5" />
-                            )}
-                          </div>
-                        </NavLinkWithNoSSR>
-                      </HoverCardTrigger>
-                      {nl.name === 'About' && (
-                        <HoverCardContent className="w-40 z-110 bg-white">
-                          <div className="flex flex-col gap-2 e w-full text-sm">
-                            <Link href={`/posts`} className="border-b-2 py-1">
-                              Posts
-                            </Link>
-                          </div>
-                        </HoverCardContent>
-                      )}
-                    </HoverCard>
+                    <NavLinkWithNoSSR href={`/#${nl.url}`} url={nl.url}>
+                      {nl.name}
+                    </NavLinkWithNoSSR>
                   </li>
                 ))}
               </ol>
@@ -192,20 +172,8 @@ const HeaderNav = () => {
                         <NavLinkWithNoSSR
                           href={`/#${nl.url}`}
                           url={nl.url}
-                          // closeNav={() =>
-                          //     setNavOpen(false)
-                          // }
                         >
-                          <HoverCard>
-                            <HoverCardTrigger asChild>
-                              <span>{nl.name}</span>
-                            </HoverCardTrigger>
-                            {nl.name === 'About' && (
-                              <HoverCardContent className="w-20">
-                                <Link href={`/posts`}>Posts</Link>
-                              </HoverCardContent>
-                            )}
-                          </HoverCard>
+                          {nl.name}
                         </NavLinkWithNoSSR>
                       </li>
                     ))}

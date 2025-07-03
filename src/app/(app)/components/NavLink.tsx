@@ -15,7 +15,9 @@ const NavLink: FC<{
     closeNav?: () => void;
 }> = ({ href, url, children, ...props }) => {
     // const { asPath, push } = useRouter();
-    const child = Children.only(children) as ReactElement;
+    // Handle both string and React element children
+    const isReactElement = React.isValidElement(children);
+    const child = isReactElement ? Children.only(children) as ReactElement : null;
     // const className = asPath === `/${href}` ? "active-nav" : "";
 
     return (
@@ -33,7 +35,7 @@ const NavLink: FC<{
             //     closeNav && closeNav();
             // }}
         >
-            {cloneElement(child)}
+            {isReactElement ? cloneElement(child!) : children}
         </Link>
     );
 };

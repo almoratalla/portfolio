@@ -17,7 +17,6 @@ import { PostSchema } from '@/components/PostSchema'
 import PageClient from './page.client'
 import HeaderNav from '../../components/HeaderNav'
 import Script from 'next/script'
-import Head from 'next/head'
 import { PostActions } from '@/components/PostActions/enhanced'
 
 export async function generateStaticParams() {
@@ -66,14 +65,6 @@ export default async function Post({ params: paramsPromise }: Args) {
       {/* SEO Schema.org Structured Data */}
       <PostSchema post={post} />
 
-      <Head>
-        <title>Alain Moratalla</title>
-        <link rel="canonical" href={postUrl} />
-        <meta
-          name="description"
-          content="Let's turn brilliant ideas to income generation solutions"
-        />
-      </Head>
       <Script
         src="https://www.biblegateway.com/public/link-to-us/tooltips/bglinks.js"
         type="text/javascript"
