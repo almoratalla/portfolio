@@ -372,6 +372,7 @@ export interface ContentBlock {
  */
 export interface MediaBlock {
   position?: ('default' | 'fullscreen') | null;
+  size?: ('small' | 'medium' | 'large') | null;
   media: string | Media;
   id?: string | null;
   blockName?: string | null;
@@ -978,6 +979,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
  */
 export interface MediaBlockSelect<T extends boolean = true> {
   position?: T;
+  size?: T;
   media?: T;
   id?: T;
   blockName?: T;

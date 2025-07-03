@@ -26,12 +26,41 @@ export const MediaBlock: React.FC<Props> = (props) => {
     imgClassName,
     media,
     position = 'default',
+    size = 'large',
     staticImage,
     disableInnerContainer,
   } = props
 
   let caption
   if (media && typeof media === 'object') caption = media.caption
+
+  // Define size classes for different image sizes
+  const getSizeClasses = (size: string | null) => {
+    switch (size) {
+      case 'small':
+        return 'max-w-sm mx-auto' // ~384px
+      case 'medium':
+        return 'max-w-2xl mx-auto' // ~672px
+      case 'large':
+        return 'max-w-4xl mx-auto' // ~896px
+      default:
+        return 'max-w-4xl mx-auto'
+    }
+  }
+
+  // Also apply responsive sizing to ensure images look good on all devices
+  const getResponsiveSizeClasses = (size: string | null) => {
+    switch (size) {
+      case 'small':
+        return 'w-full max-w-sm mx-auto'
+      case 'medium':
+        return 'w-full max-w-2xl mx-auto'
+      case 'large':
+        return 'w-full max-w-4xl mx-auto'
+      default:
+        return 'w-full max-w-4xl mx-auto'
+    }
+  }
 
   return (
     <div
@@ -49,14 +78,17 @@ export const MediaBlock: React.FC<Props> = (props) => {
         </div>
       )}
       {position === 'default' && (
-        <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
+        <div className={cn(getResponsiveSizeClasses(size))}>
+          <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
+        </div>
       )}
       {caption && (
         <div
           className={cn(
-            'mt-6',
+            'mt-6 text-center',
             {
               container: position === 'fullscreen' && !disableInnerContainer,
+              [getResponsiveSizeClasses(size)]: position === 'default',
             },
             captionClassName,
           )}

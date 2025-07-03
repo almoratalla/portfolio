@@ -20,6 +20,25 @@ export const MediaBlock: Block = {
       ],
     },
     {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'large',
+      options: [
+        {
+          label: 'Small',
+          value: 'small',
+        },
+        {
+          label: 'Medium',
+          value: 'medium',
+        },
+        {
+          label: 'Large',
+          value: 'large',
+        },
+      ],
+    },
+    {
       name: 'media',
       type: 'upload',
       relationTo: 'media',
